@@ -13,7 +13,7 @@ function stopwatch(){
         secs++;
     }
     //displaying updated time values
-    document.getElementByClassName("display").innerHTML = secs+"."+millisecs
+    document.querySelector(".display").innerHTML = secs+"."+millisecs
 }
 
 //8/12/15/17 sec, +2 and DNF alerts
