@@ -2,6 +2,12 @@
 let secs = 0;
 let millisecs = 0;
 
+//to hold setinterval()
+let interval=null;
+
+//to hold stopwatch status
+let status = "stopped";
+
 //stopwatch function()
 function stopwatch(){
      millisecs++;
@@ -19,19 +25,34 @@ function stopwatch(){
 //8/12/15/17 sec, +2 and DNF alerts
 function warning(){
     if(secs==8){
-        console.log("8 seconds")
+        alert("8 seconds");
     }
     if(secs==12){
-        console.log("12 seconds")
+        alert("12 seconds");
     }
     if(secs>15<17){
-        console.log("+2")
+        alert("+2");
     }
     if(secs>=17){
-        console.log("DNF")
+        alert("DNF");
     }
 }
 
-window.setInterval(stopwatch, 1000);
 
+
+
+function startstop(){
+    if(status=="stopped){
+       
+       //start the stopwatch by calling setinterval()
+       interval = window.setInterval(stopwatch, 10);
+       document.getElementbyId("startstop").innerHTML = "stop";
+       status = "started";
+     }
+     else{
+          window.clearInterval(interval);
+          document.getElementbyId("startstop").innerHTML = "start";
+          status = "stopped";
+     }     
+}
 
